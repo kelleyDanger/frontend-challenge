@@ -7,11 +7,16 @@ import "styles/base/_main.sass"  // Global styles
 import "styles/base/_common.sass"  // Global styles
 import "styles/_style.sass"  // Css-module styles
 
+import { Provider } from "react-redux";
+import store from "./stores/root.js";
+
 const renderApp = (Component) => {
   ReactDOM.render(
-    <AppContainer>
-      <Component/>
-    </AppContainer>,
+    <Provider store={store}>
+      <AppContainer>
+        <Component/>
+      </AppContainer>
+    </Provider>,
     document.getElementById('app')
   );
 };

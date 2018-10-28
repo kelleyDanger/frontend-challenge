@@ -1,18 +1,40 @@
 
 <p align="center">
-    <h3 align="center">Simple React Webpack Babel Starter Kit<br></h3>
+    <h3 align="center">Outlier UI Challenge<br></h3>
 </p>
 
-[![CircleCI](https://circleci.com/gh/ReactJSResources/react-webpack-babel/tree/master.svg?style=svg)](https://circleci.com/gh/ReactJSResources/react-webpack-babel/tree/master)
 
-[![Dependency Status](https://img.shields.io/david/ReactJSResources/react-webpack-babel.svg)](https://david-dm.org/dylang/npm-check)
+Welcome to the Outlier UI Developer Challenge.
 
-Tired of complicated starters with 200MB of dependencies which are hard to understand and modify? This is for you!
+This repo contains a small UI project written in React. Unfortunately it has many errors and 
+outmoded coding practices, particularly in Launches.jsx, the components and the actions. The Layout, routing,
+stores and services are more up to date, so don't waste too much of your time on them (although
+feel free to give feedback or make fixes if you think significant improvements are possible and you want to take 
+the time — but they're not necessarily intended to be in scope of the challenge.)
+
+The repo is designed to be simple to start and run with just npm (or yarn) and any recent version of node.
+It is built on webpack and uses the webpack development server, so all you should need to do is clone the 
+repo and start the app in development mode with npm start and view it on port 7357. All the tools 
+for writing tests and code should be included, but feel free to add additional dependencies if you find that
+helps you.
+
+While the app is written in React and Redux and basic knowledge of these frameworks may be helpful,
+ this is not explicitly a test of your React knowledge, the changes do not
+necessarily involve knowledge of the React lifecycle, but rather good front end development practices,
+ efficient modern functional and object-oriented Javascript (ES6) as well as CSS or SASS specifically.
+
+Feel free to add files, breakup components or modularize and generally clean up code. Following good
+test-driven development, write tests around the classes and objects you change, ie, the actions,
+components, and the Launches view as well as any new files you add.
+
+The development challenge is build against the space-x public REST API `https://documenter.getpostman.com/view/2025350/RWaEzAiG`
+
+Good Luck.
 
 ### What were using
 
 * React 16
-* Webpack 3
+* Webpack 4
 * React Router 4
 * SASS
 * Babel Cli
@@ -24,7 +46,6 @@ Tired of complicated starters with 200MB of dependencies which are hard to under
 
 * Simple src/index.jsx and src/index.css (local module css).
 * Webpack configuration for development (with hot reloading) and production (with minification).
-* CSS module loading, so you can include your css by ```import styles from './path/to.css';```.
 * Both js(x) and css hot loaded during development.
 * [Webpack Dashboard Plugin](https://github.com/FormidableLabs/webpack-dashboard) on dev server.
 
@@ -34,7 +55,7 @@ Tired of complicated starters with 200MB of dependencies which are hard to under
 * Fork and clone the project:
 
 ```
-git clone https://github.com/ReactJSResources/react-webpack-babel.git
+git clone https://github.com/seamusmalone/ui-test-base
 ```
 
 * Then install the dependencies:
@@ -55,7 +76,8 @@ npm start
 npm run dev
 ```
 
-Open the web browser to `http://localhost:8888/`
+Open the web browser to `http://localhost:7357/`
+
 
 ### To test
 To run unit tests:
@@ -70,59 +92,3 @@ Tests come bundled with:
 * Enzyme
 * React Test Utils
 * React Test Renderer
-
-### To build the production package
-
-```
-npm run build
-```
-
-### Running build locally
-
-```
-npm run serve:build
-```
-
-### Nginx Config
-
-Here is an example Nginx config:
-
-```
-server {
-	# ... root and other options
-
-	gzip on;
-	gzip_http_version 1.1;
-	gzip_types text/plain text/css text/xml application/javascript image/svg+xml;
-
-	location / {
-		try_files $uri $uri/ /index.html;
-	}
-
-	location ~ \.html?$ {
-		expires 1d;
-	}
-
-	location ~ \.(svg|ttf|js|css|svgz|eot|otf|woff|jpg|jpeg|gif|png|ico)$ {
-		access_log off;
-		log_not_found off;
-		expires max;
-	}
-}
-```
-
-### Eslint
-There is a `.eslint.yaml` config for eslint ready with React plugin.
-
-To run linting, run:
-
-```
-npm run lint
-```
-
-### Notes on importing css styles
-* styles having /src/ in their absolute path considered part of the application and exported as local css modules.
-* other styles considered global styles used by components and included in the css bundle directly.
-
-### Contribute
-Please contribute to the project if you know how to make it better, including this README :)

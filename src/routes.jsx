@@ -3,16 +3,13 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import Three from './views/Three';
-import One from './views/One';
-import Two from './views/Two';
+import Launches from './views/Launches';
 
 const Routes = () => (
   <Router>
     <div>
-      <Route exact path="/" component={One}/>
-      <Route path="/two" component={Two}/>
-      <Route path="/three" component={Three}/>
+      <Route exact path="/" component={Launches}/>
+      <Route path="/Launches" component={Launches}/>
     </div>
   </Router>
 );

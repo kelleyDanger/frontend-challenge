@@ -22,12 +22,26 @@ While the app is written in React and Redux and basic knowledge of these framewo
  this is not explicitly a test of your React knowledge, the changes do not
 necessarily involve knowledge of the React lifecycle, but rather good front end development practices,
  efficient modern functional and object-oriented Javascript (ES6) as well as CSS or SASS specifically.
+ While the code is intentionally a little dirty around the edges in the hopes you will show us how you would 
+ clean it up, you should be able to follow the general react/redux and REST pattern for loading data and 
+ outputting UI elements.
+
+The app pulls data about launches from the public SpaceX api. 
+
+**Your task** is to add a feature where clicking
+on any given launch will load and display information about the rocket used in the launch including rendering
+the images of the rocket referenced in the api. 
 
 Feel free to add files, breakup components or modularize and generally clean up code. Following good
 test-driven development, write tests around the classes and objects you change, ie, the actions,
-components, and the Launches view as well as any new files you add.
+components, and the Launches view as well as any new files you add. If you find it hard to test the react
+components put more emphasis on simply testing the action and store/reducer code. Please make a little effort
+to cleanly format the results in minimal but visually pleasing format. Place more emphasis on usability than
+graphic design, code with the assumption that colors, borders and margins might change according to forthcoming
+design requirements and your job is make a clean flexible and usable layout.
 
 The development challenge is build against the space-x public REST API `https://documenter.getpostman.com/view/2025350/RWaEzAiG`
+You should be able to easily find the information there make the call and extract the data needed.
 
 Good Luck.
 

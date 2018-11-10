@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ConnectedView from './ConnectedView';
 import {fetchLaunchesIfNeeded} from "../actions/Launches";
 import Launch from '../components/Launch';
-import {fetchRocketIfNeeded} from "../actions/Rocket";
 
 class LaunchesView extends Component {
   componentDidMount() {
@@ -10,14 +9,8 @@ class LaunchesView extends Component {
     fetchLaunchesIfNeeded({ dispatch, launchesCollection });
   }
 
-  fetchRocket(rocket_id) {
-    console.log('fetch rocket ' + rocket_id);
-    const { dispatch, rocketCollection } = this.props;
-    fetchRocketIfNeeded({ dispatch, rocketCollection, rocket_id });
-  }
-
   getContent() {
-    const { launchCollection, rocketCollection } = this.props;
+    const { launchCollection } = this.props;
 
     if (!launchCollection || launchCollection.fetching) {
       return <div> LOADING </div>;
@@ -29,30 +22,26 @@ class LaunchesView extends Component {
 
     let launches = [];
 
-    for (let i = 0; i < launches.length; i++) {
+    for (let i = 0; i < launchCollection.launches.length; i++) {
       const launch = launchCollection.launches[i];
-      const rocket = rocketCollection.rockets[launch.rocket.rocket_id];
 
       launches.push(
         <Launch {...{
-          launch,
-          rocket,
-          fetchRocket: () => this.fetchRocket(launch.rocket.rocket_id)
+          key: launch.launch_id,
+          launch
         }} />
 
       )
     }
 
-    return launches;
+    return <ul>{launches}</ul>;
   }
 
   render() {
     return (
       <div>
         <h2> SpaceX launches </h2>
-        <ul>
-          {this.getContent()}
-        </ul>
+        {this.getContent()}
       </div>
     );
   }

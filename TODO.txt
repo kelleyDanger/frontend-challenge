@@ -1,0 +1,10 @@
+.TODO
+
+1. Add rocket images
+2. Performance/caching
+3. Fancy animations
+4. Modularize code
+5. Stylize using a popular library of components and custom css
+6. Add Unit Tests
+7. Add a new feature!
+8. Group Missions by Rocket

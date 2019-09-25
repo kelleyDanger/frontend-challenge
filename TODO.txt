@@ -1,10 +1,45 @@
 .TODO
 
-1. Add rocket images
+1. Add a feature where clicking
+on any given launch will load and display information about the rocket used in the launch including rendering
+the images of the rocket referenced in the api
+2. write tests around the classes and objects you change, ie, the actions,
+components, and the Launches view as well as any new files you add
+3. more emphasis on usability than
+graphic design, clean and flexible layout
 2. Performance/caching
+	- /launches endpoint takes on average 206.6 ms ((149+267+224+121+499+255+121+204+107+119)/10)
+	- optional : cache in session storage as there are flights every month or so
 3. Fancy animations
 4. Modularize code
 5. Stylize using a popular library of components and custom css
 6. Add Unit Tests
 7. Add a new feature!
 8. Group Missions by Rocket
+
+What I would like to implement
+1. make component specific and global styles follow same format.
+2. load and cache images of singular call to replace patch calls
+3. cache the api calls of the singular calls into local storage so images don't need to get loaded.  
+4. check if area 51 api endpoint to see status and speed of naruto runners.
+
+NOTES
+- You can see figma of design https://www.figma.com/file/m4JD1NJCrO9U6HqEDRcp8g/Google-Material-Design?node-id=0%3A484
+- I went with doing Index 2.1 and Detail 1.1
+
+- When trying to call /launches/{flight_number} on page load for each launch, I got 429 Too Many Requests
+I wanted to load Cards by default with the Launch image, but the generic /launches does not load images.  Instead, I will use a placeholder image, such as the Badge image which is preset in the /launches response.  Only when a Card is expanded, will I try fetching.  I should also start caching images based on flightnumber.
+
+- I nested the reducer to organize it to have index for all launches, show for a single one, and upcoming for an upcoming launch. Could be reworded for clarity, some people have different preferences on naming conventions but I usually keep it index for all and show for single.
+
+- you could combine the root reducer and store code into one file since they're so small, but I like to keep all my reducers in one folder and store logic which gets more complicated with middleware in a separate file usually.
+
+- not a big deal but I added a constants file to start to share keys like the spacex url.
+
+- I use index a lot because it makes calling the folder with the imports much cleaner. I tend to also see it in bigger apps as well. Not a big deal though if you drop that, some people like naming conventions for files to be clearer.
+
+- could make a folder for each service, but fine lumping the api calls for single and index in one service file.
+
+- added alias for the root called 'app' so we can call files like constants without worrying about folder structure.
+
+- put constants file at the base for all constants.

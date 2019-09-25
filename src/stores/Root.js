@@ -1,10 +1,4 @@
-import { createStore, combineReducers } from 'redux';
-import launchCollection from './LaunchCollectionReducer';
+import { createStore } from 'redux';
+import rootReducer from '../reducers';
 
-const rootReducer = combineReducers({
-  launchCollection
-});
-
-const store = createStore(rootReducer);
-
-export default store;
+export default createStore(rootReducer);

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Layout = ({
-                  pageName, menu, children
-                }) => {
+export default function Layout(props) {
+  const {pageName, menu, children} = props
+  
   return (
     <main className={`${pageName} layout`}>
       <nav>
@@ -15,5 +15,3 @@ const Layout = ({
     </main>
   );
 };
-
-export default Layout;

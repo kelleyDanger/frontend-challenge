@@ -1,12 +1,11 @@
 import axios from 'axios';
+import Constants from 'app/constants';
 
-const SERVICES_URL = 'https://api.spacexdata.com/v3';
-const serviceUrl = `${SERVICES_URL}/launches`;
+const baseSpacexUrl = `${Constants.BASE_SPACEX_URL}/launches`;
 
 const api = axios.create();
-
-const launchService = {
-  get: () => api.get(`${serviceUrl}`)
+ 
+export default {
+  get: () => api.get(`${baseSpacexUrl}`),
+  getByFlightNumber: (flightNumber) => api.get(`${baseSpacexUrl}/${flightNumber}`),
 };
-
-export default launchService;
